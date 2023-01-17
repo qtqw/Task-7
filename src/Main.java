@@ -5,6 +5,17 @@ import java.util.Scanner;
 public class Main {
     private static final String SEQUENCEASK = "Введите последовательность (для завершения введите букву): ";
     public static void main(String[] args) {
+        Tests.test1();
+        Tests.test2();
+        Tests.test3();
+        Tests.test4();
+        Tests.test5();
+        Tests.test6();
+        Tests.test7();
+        Tests.test8();
+        Tests.test9();
+        Tests.test10();
+
         int[] sequence = Input();
            Result result = solution(sequence);
             System.out.print(result.position + " ");
@@ -16,6 +27,7 @@ public class Main {
     private static int[] Input() {
         List<Integer> sequence = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
+        System.out.println();
         System.out.println(SEQUENCEASK);
         while (scanner.hasNextInt()){
             sequence.add(scanner.nextInt());
@@ -35,8 +47,8 @@ public class Main {
     public static Result solution(int[] sequence) {
         Result result = new Result();
         Result maxResult = new Result();
-        for (int i = 1; i < sequence.length; i++) {
-            if (sequence[i-1] <= sequence[i]) {
+        for (int i = 0; i < sequence.length-1; i++) {
+            if (sequence[i] <= sequence[i+1]) {
                 result.count++;
             }
             else {
